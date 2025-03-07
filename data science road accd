@@ -1,0 +1,44 @@
+import pandas as pd
+import numpy as np
+
+import pandas as pd
+george =pd.read_csv('/content/road_accidents.csv')
+george
+
+import pandas as pd
+import pandas as pd
+george =pd.read_csv('/content/road_accidents.csv')
+george1 = george.loc[:, ['Age', 'Speed']]
+george1    =george1['Speed'] =george1['Speed'].fillna(0)
+print(f"Missing values in'Speed'before handling:{george1['Speed'].isna().sum()}")
+george1['Speed'].fillna(0,inplace =True)
+print(f"Missing values in 'Speed'after handling:{george1['Speed'].isna().sum()}")
+george1.head(10)
+
+import pandas as pd
+george2 =pd.read_csv("road_accidents.csv")
+severity_mapping ={"Slight Injury":0,"Serious Injury":1,"Fatal Injury":2}
+george2["Age"]=george2["Age"].map(severity_mapping)
+george2["Age"]=george2["Age"].fillna(-1).astype(int)
+george2.to_csv("road_accidents_updated.csv",index=False)
+print(george2.head())
+
+import sys
+sys.setrecursionlimit(2000)
+george2 =pd.read_csv('/content/road_accidents.csv')
+george2.plot(x='Speed',y='Age',style='o')
+george2['Speed'] =george2['Speed'].fillna(0)
+george2
+df=george2['Speed']
+df
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+george2 =pd.read_csv('/content/road_accidents.csv')
+x =pd.DataFrame(george2['Speed'])
+y=pd.DataFrame(george2['Age'])
+
+#the only part that has no simulation
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(x_train,y_train)
